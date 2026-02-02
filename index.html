@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Юкина Вероника — Frontend-разработчик</title>
+    <meta name="description" content="Резюме Юкиной Вероники — проекты, навыки, образование и контакты.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="sakura"></div>
+
+    <header class="header fade-in-up">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="container header__inner">
+            <a class="header__logo" href="#hero">Юкина&nbsp;В.</a>
+            <div class="personalization">
+                <button id="theme-toggle" class="btn small" aria-pressed="false" role="switch">🌞 Тема</button>
+                <button id="lang-toggle" class="btn small" aria-pressed="false" role="switch">RU</button>
+            </div>
+
+            <nav class="header__nav" aria-label="Главное меню">
+                <ul class="header__list">
+                    <li><a href="#about" class="header__link header__link--about">Обо мне</a></li>
+                    <li><a href="#skills" class="header__link header__link--skills">Навыки</a></li>
+                    <li><a href="#education" class="header__link header__link--education">Образование</a></li>
+                    <li><a href="#projects" class="header__link header__link--projects">Проекты</a></li>
+                    <li><a href="#contacts" class="header__link header__link--contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero fade-in-up">
+            <div class="container hero__inner">
+                <div class="hero__info">
+                    <h1 class="hero__title" data-i18n="hero-name">Юкина Вероника</h1>
+                    <p class="hero__subtitle" data-i18n="hero-role">Frontend-разработчик</p>
+                    <a class="btn hero__cta" href="#contacts" data-i18n="hero-contact">Связаться со мной</a>
+                </div>
+                <div class="hero__photo">
+                    <img src="img/IMG_5174.JPG" alt="Фото Юкиной Вероники" class="hero__img">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about fade-in-up">
+            <div class="container">
+                <h2 class="section__title" data-i18n="about-title">Обо мне</h2>
+                <p data-i18n="about-text">
+                    Я студентка 2-го курса Высшей школы экономики, обучаюсь по направлению «Дизайн и разработка
+                    информационных продуктов».
+                    Сейчас я только начинаю свой путь в этой сфере, но очень мотивирована учиться новому и развивать
+                    свои навыки.
+                    Главная цель — создавать интересные цифровые продукты и развиваться так, чтобы моя работа приносила
+                    профессиональное удовлетворение и хороший доход.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills fade-in-up">
+            <div class="container">
+                <h2 class="section__title" data-i18n="skills-title">Навыки</h2>
+                <ul class="skills__list" data-i18n-list="skills-list">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>C++, Java, Python, SQL</li>
+                    <li>Figma/li>
+                    <li>Git / GitHub</li>
+                    <li>UI/UX</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="education fade-in-up">
+            <div class="container">
+                <h2 class="section__title" data-i18n="education-title">Образование</h2>
+                <ul class="education__list">
+                    <li data-i18n="school-item"><strong>2012 – 2024:</strong> Школа №1245, Москва</li>
+                    <li data-i18n="university-item"><strong>2024 – … :</strong> Высшая школа экономики, направление
+                        «Дизайн и разработка информационных продуктов»</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="projects fade-in-up">
+            <div class="projects-controls">
+                <input type="text" id="project-search" placeholder="Поиск по проектам..."
+                    data-i18n-placeholder="search-placeholder">
+
+                <div class="filters">
+                    <label><input type="checkbox" value="Frontend"> Frontend</label>
+                    <label><input type="checkbox" value="UX"> UX</label>
+                </div>
+
+                <div class="view-toggle">
+                    <button id="grid-view" class="btn active" data-i18n="view-grid">Карточки</button>
+                    <button id="list-view" class="btn" data-i18n="view-list">Список</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 class="section__title" data-i18n="projects-title">Проекты</h2>
+                <div class="projects__list">
+                    <article class="project fade-in-up">
+                        <h3 class="project__title">Project 1</h3>
+                        <p class="project__role" data-i18n="project1-role">Роль: Frontend</p>
+                        <p class="project__desc" data-i18n="project1-desc">Учебный проект - сайт-портфолио с адаптивной
+                            версткой и анимациями.</p>
+                        <a class="project__link"
+                            href="https://gitlab.education.tbank.ru/hse-frontend-common-autumn-2025/Students/vviukina/Homeworks/seminar-2-homework/-/commit/38b6201a15e6b8ad97566291e2e0e17897dda195"
+                            target="_blank" rel="noopener" data-i18n="view-project">Смотреть проект</a>
+                    </article>
+
+                    <article class="project fade-in-up">
+                        <h3 class="project__title">Project 2</h3>
+                        <p class="project__role" data-i18n="project2-role">Роль: UX / Frontend</p>
+                        <p class="project__desc" data-i18n="project2-desc">Прототип сервиса в Figma.</p>
+                        <a class="project__link"
+                            href="https://gitlab.education.tbank.ru/hse-frontend-common-autumn-2025/Students/vviukina/Homeworks/seminar-1-homework/-/commit/b33072e405f5ae4c28f6869002a7733e3a712c03"
+                            target="_blank" rel="noopener" data-i18n="view-project">Смотреть проект</a>
+                    </article>
+                </div>
+                <div class="no-results" data-i18n="no-results" style="display: none;">Нет проектов, соответствующих
+                    запросу.</div>
+            </div>
+        </section>
+
+        <section id="contacts" class="contacts fade-in-up">
+            <div class="container">
+                <h2 class="section__title" data-i18n="contacts-title">Контакты</h2>
+                <ul class="contacts__list">
+                    <li><a href="https://t.me/lattec9okue" target="_blank" rel="noopener">Telegram</a></li>
+                    <li><a href="tel:+79162655915">+7 (916) 265-59-15</a></li>
+                    <li><a href="https://figma.com/@vviukina" target="_blank" rel="noopener">Figma</a></li>
+                    <li><a href="mailto:yukina2006@mail.ru">yukina2006@mail.ru</a></li>
+                </ul>
+
+                <form id="feedback-form" action="https://formspree.io/f/meorrwrp" method="POST">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form-name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="form-email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="form-message">Сообщение</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" data-i18n="form-submit">Отправить</button>
+                </form>
+
+                <div id="success-message" aria-live="polite" data-i18n="form-success" style="display:none;">
+                    Сообщение успешно отправлено!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="ux-analysis" class="ux fade-in-up">
+        <div class="container">
+            <h2 class="section__title" data-i18n="ux-title">UX-анализ</h2>
+            <a href="docs/ux-analysis.pdf" target="_blank" class="btn" data-i18n="ux-button">📄 UX-анализ (PDF)</a>
+        </div>
+    </section>
+
+    <footer class="footer fade-in-up">
+        <div class="container">
+            <p>© <span id="year"></span> <span data-i18n="footer-name">Юкина Вероника</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

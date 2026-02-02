@@ -1,0 +1,627 @@
+/* Сброс / базовые стили */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-size: 16px;
+}
+
+/* Светлая тема */
+:root {
+    --bg-color: #fdfaf7;
+    --text-color: #111;
+    --card-bg: #ffffff;
+    --header-bg: #ffffffcc;
+    --link-color: #0b0b0b;
+    --link-hover: #ebe2d1;
+    --accent: #562B1A;
+    --accent-hover: #2821f4;
+    --border-color: #ddd;
+    --input-bg: #fff;
+
+    /* Дополнительные */
+    --muted-text: #666;
+    --subtext: #444;
+    --focus-border: #f8a5c2;
+    --focus-shadow: rgba(248, 165, 194, 0.2);
+    --success-bg: #d4edda;
+    --success-text: #155724;
+    --success-border: #c3e6cb;
+    --error-bg: #fdecea;
+    --error-text: #e74c3c;
+    --error-border: #e74c3c;
+    --footer-border: #eee;
+    --footer-text: #666;
+    --light-bg: #f6f8ff;
+    --light-hover: #e0e7ff;
+    --hero-gradient: #f5f1ed;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.1);
+}
+
+/* Тёмная тема  */
+html[data-theme="dark"] {
+    --bg-color: #2a1f1a;
+    --text-color: #f3e9dc;
+    --card-bg: #3a2b24;
+    --header-bg: #3a2b24cc;
+    --link-color: #f5ddc5;
+    --link-hover: #5a3c2f;
+    --accent: #d8a35d;
+    --accent-hover: #ffffff;
+    --border-color: #5a463c;
+    --input-bg: #45352f;
+
+    --muted-text: #c8b7a6;
+    --subtext: #d9cfc4;
+    --focus-border: #e0b97a;
+    --focus-shadow: rgba(216, 163, 93, 0.25);
+    --success-bg: #3b4a3e;
+    --success-text: #d8f3dc;
+    --success-border: #567b5b;
+    --error-bg: #4a2f2f;
+    --error-text: #f4cccc;
+    --error-border: #c26161;
+    --footer-border: #5a463c;
+    --footer-text: #bfae9f;
+    --light-bg: #4a3a33;
+    --light-hover: #5a463c;
+    --hero-gradient: #4a3a33;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+}
+
+/* применяем переменные */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.project,
+.contacts__link,
+#feedback-form {
+    background: var(--card-bg);
+}
+
+.btn {
+    background: var(--accent);
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Контейнер */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--accent);
+    color: var(--input-bg);
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: var(--accent-hover);
+}
+
+/* Хедер */
+.header {
+    background: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+}
+
+.header__logo {
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header__list {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.header__link {
+    text-decoration: none;
+    color: var(--link-color);
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.header__link:hover {
+    background: var(--link-hover);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: var(--accent-color, #ff7b7b);
+    transition: width 0.1s ease-out;
+    z-index: 1000;
+}
+
+/* Для тёмной темы */
+[data-theme="dark"] .progress-bar {
+    background: var(--accent-color, #ffa0a0);
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 600px) {
+    .header__list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Hero */
+.hero {
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, var(--card-bg), var(--hero-gradient));
+    border-radius: 32px;
+    margin: 1rem 0;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    display: grid;
+    place-items: center;
+}
+
+.hero__inner {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+.hero__photo {
+    justify-self: center;
+    max-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px var(--shadow-hover);
+}
+
+.hero__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Заголовки секций */
+.section__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--accent);
+}
+
+/* Панель управления проектами */
+.projects-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+.projects-controls input[type="text"] {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.projects-controls input[type="text"]:focus {
+    border-color: var(--focus-border);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 14px;
+    background: var(--light-bg);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.filters input[type="checkbox"] {
+    accent-color: var(--accent);
+}
+
+.filters label:hover {
+    background: var(--link-hover);
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-toggle .btn {
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+}
+
+.view-toggle .btn.active {
+    border: none;
+    background: var(--accent-hover);
+    color: var(--input-bg);
+}
+
+/* Проекты */
+.projects__list.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.projects__list.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.projects__list.list-view .project {
+    width: 100%;
+    margin: 0;
+}
+
+.projects__list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+}
+
+.project {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.2rem;
+    background: var(--input-bg);
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.project__title {
+    margin: 0 0 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project__role {
+    margin: 0 0 0.5rem;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+.project__desc {
+    margin: 0.5rem 0;
+    color: var(--subtext);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.project__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.project__link:hover {
+    color: var(--accent-hover);
+}
+
+/* Контакты */
+.contacts__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contacts__link {
+    text-decoration: none;
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    display: inline-block;
+    background: var(--light-bg);
+    color: var(--link-color);
+    transition: background 0.3s;
+}
+
+.contacts__link:hover {
+    background: var(--light-hover);
+}
+
+/* Форма обратной связи */
+#feedback-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 24px;
+    background: var(--input-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.6s ease-out;
+}
+
+#feedback-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+input,
+textarea {
+    padding: 10px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    resize: none;
+    background: var(--input-bg);
+    color: var(--text-color);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--focus-border);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+button[type="submit"] {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--accent);
+    color: var(--card-bg);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.02);
+    background: var(--accent-hover);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Сообщение об успехе */
+#success-message {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 12px 16px;
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border-radius: 10px;
+    border: 1px solid var(--success-border);
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Ошибки */
+input.error,
+textarea.error {
+    border-color: var(--error-border);
+    background-color: var(--error-bg);
+}
+
+.error-message {
+    color: var(--error-text);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Футер */
+.footer {
+    border-top: 1px solid var(--footer-border);
+    padding: 1rem 0;
+    color: var(--footer-text);
+    text-align: center;
+}
+
+/* Медиа-запросы */
+@media (min-width: 780px) {
+    .hero__inner {
+        grid-template-columns: 1fr 320px;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .projects__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contacts__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}
+
+@media (min-width:1400px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero__inner {
+        grid-template-columns: 1fr 420px;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Последовательная анимация для проектов */
+.project:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.project:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.project:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Падающие цветочки */
+.sakura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.sakura span {
+    position: absolute;
+    top: -50px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('img/flower.png') no-repeat center/contain;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
